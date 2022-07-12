@@ -1,0 +1,63 @@
+<div    
+    *ngIf="!pais; else infoPais"
+    class="alert alert-info"
+>
+    <h5>Cargando datos....</h5>
+</div>
+
+
+<ng-template #infoPais>
+    <div class="row">
+        <div class="col-9">
+            <h1><small>{{ pais.name  }}</small></h1>        
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <img [src]="pais.flag" class="small-flag">
+        </div>
+        <div class="col-6">
+            <h2>Información</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong> Población: </strong>{{ pais.population | number }}</li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item"><strong> Código Alpha3: </strong>{{ pais.alpha3Code }}</li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item"><strong> Código Alpha2: </strong>{{ pais.alpha2Code }}</li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item"><strong> Código Númerico: </strong>{{ pais.numericCode }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Traducciones</h2>
+        <div class="col">
+            <span class="badge bg-primary m-1">{{ pais.translations.br }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.de }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.es }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.fa }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.fr }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.hr }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.hu }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.it }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.ja }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.nl }} </span>
+            <span class="badge bg-primary m-1">{{ pais.translations.pt }} </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Monedas</h2>
+        <div class="col">
+            <span>{{ pais.currencies[0]   }}</span>
+            
+        </div>
+    </div>
+</ng-template>
+ 
+ 
+

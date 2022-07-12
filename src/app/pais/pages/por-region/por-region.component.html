@@ -1,0 +1,29 @@
+<h2>Por Región</h2>  
+<hr>
+<div class="row">
+    <div class="col">       
+        <app-search
+            (onEnter)="buscar( $event )"
+            (onDebounce)="sugerencias( $event )"
+            txtPlaceholder="Buscar por región..."
+        >
+        </app-search>
+    </div>
+</div>
+<hr>
+<div
+    *ngIf="hayError" 
+    class="alert alert-danger"
+>
+    No se encontraron datos con ese término {{ termino }}. 
+</div>
+
+<div class="row" 
+*ngIf="!hayError" 
+>
+    <div class="col">
+        <app-pais-tabla
+        [paises]="paises"
+        ></app-pais-tabla>
+    </div>
+</div>
