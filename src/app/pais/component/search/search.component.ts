@@ -16,7 +16,8 @@ export class SearchComponent  implements OnInit {
   @Input() txtPlaceholder: string = '';
 
   debounce: Subject<string> = new Subject();
-  termino:string = '';
+  
+  termino: string = '';
 
   ngOnInit() {
     this.debounce

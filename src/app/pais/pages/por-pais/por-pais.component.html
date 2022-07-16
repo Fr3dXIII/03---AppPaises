@@ -1,4 +1,4 @@
-<h2>Por Pais</h2>  
+<h2  class="animate__animated animate__bounce">Por Pais</h2>  
 <hr>
 <div class="row">
     <div class="col">       
@@ -10,6 +10,18 @@
         </app-search>
     </div>
 </div>
+<ul class="list-group">
+    <li 
+        *ngFor="let itemSugerido of paisesSugeridos"
+        class="list-group-item list-group-item-action"
+    >   
+    <a [routerLink]="['/pais', itemSugerido.alpha2Code]">
+        {{ itemSugerido.name }}
+    </a>
+    
+    </li>
+</ul>
+
 <hr>
 <div
     *ngIf="hayError" 

@@ -14,6 +14,8 @@ export class PorPaisComponent  {
   termino   : string = '';
   hayError  : boolean = false;
   paises    : Country[] = [];
+  paisesSugeridos  : Country[] = [];
+
 
   constructor(
     public paisService :PaisService
@@ -37,6 +39,12 @@ export class PorPaisComponent  {
   sugerencias(event:string){
     this.hayError = false;
     this.buscar(event);
+
+    //--- Datos para sugerencia --------------------
+    this.paisService.buscarPorNombre(event)
+      .subscribe(event => this.paisesSugeridos = event.slice(0,3),
+      (err:any)=>this.paisesSugeridos = [] )
+      
   }
 
 }

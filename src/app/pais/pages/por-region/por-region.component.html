@@ -1,29 +1,26 @@
 <h2>Por Región</h2>  
 <hr>
+<h5>Buscar por continente - Activo: {{ regionActiva | titlecase }} </h5>
 <div class="row">
-    <div class="col">       
-        <app-search
-            (onEnter)="buscar( $event )"
-            (onDebounce)="sugerencias( $event )"
-            txtPlaceholder="Buscar por región..."
+    <div class="col">
+        <button            
+            class="btn btn-outline-primary"
+            *ngFor="let itemRegion of regiones"
+            (click)="activarRegion( itemRegion )"
+            [class]="getClassCSS(itemRegion)"
         >
-        </app-search>
-    </div>
-</div>
-<hr>
-<div
-    *ngIf="hayError" 
-    class="alert alert-danger"
->
-    No se encontraron datos con ese término {{ termino }}. 
+
+            {{ itemRegion | titlecase  }}
+        </button>
+    </div>        
+
 </div>
 
-<div class="row" 
-*ngIf="!hayError" 
->
-    <div class="col">
-        <app-pais-tabla
-        [paises]="paises"
-        ></app-pais-tabla>
-    </div>
+
+<div *ngIf="paises.length > 0">
+    <app-pais-tabla
+        [paises]="paises">
+    </app-pais-tabla>
 </div>
+
+
